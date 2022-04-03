@@ -28,15 +28,15 @@ curl --location --request POST 'http://127.0.0.1:8000/api-token-auth' \ --header
 
 ### POST : create new router object.
 
-Content type: application/json
-URL: 127.0.0.1:8000/api/router
-Required:
-sapid: string(18)
-hostname: string(17)
-loopback: ipv4 (unique)
-macaddress: string (macaddress)
-Response:
-Success : 200 OK
+<br>Content type: application/json
+<br>URL: 127.0.0.1:8000/api/router
+<br>Required:
+<br>sapid: string(18)
+<br>hostname: string(17)
+<br>loopback: ipv4 (unique)
+<br>macaddress: string (macaddress)
+<br>Response:
+<br>Success : 200 OK
 
 Example: <br>
 
@@ -46,16 +46,16 @@ curl --location --request POST 'localhost:8000/api/router' \ --header 'Authoriza
 
 ### GET Request: Retrieve list of all router or filter on basis provided IP range
 
-URL: 127.0.0.1/api/router
-Method: GET
-Optional:
-loopback_start: ipv4 address
-loopback_end: ipv4 address
-Response:
-Success 200 Ok: Application/json
-Not Found 404 : Invalid IP addresses
-Bad Request 400 : Invalid Requests
-Example:
+<br>URL: 127.0.0.1/api/router
+<br>Method: GET
+<br>Optional:
+<br>loopback_start: ipv4 address
+<br>loopback_end: ipv4 address
+<br>Response:
+<br>Success 200 Ok: Application/json
+<br>Not Found 404 : Invalid IP addresses
+<br>Bad Request 400 : Invalid Requests
+<br>Example:
 
 ```
 curl --location --request GET 'http://127.0.0.1:8000/api/router?loopback_start=192.12.43.22&loopback_end=192.12.43.22' \
@@ -64,18 +64,18 @@ curl --location --request GET 'http://127.0.0.1:8000/api/router?loopback_start=1
 
 ### PATCH Request: Partial update of Router object based on unique Loopback
 
-URL: 127.0.0.1/api/router
-method: PATCH
-Required:
-loopback: IP Addresses
-Optional: (fields to update)
-sapid: string(18)
-hostname: string(17)
-macaddress: string(17)
-Response:
-Sucess 200 ok: Application/json
-Not Found 404: Loopback Address not Found
-Bad request 400: Invalid request dataa
+<br>URL: 127.0.0.1/api/router
+<br>method: PATCH
+<br>Required:
+<br>loopback: IP Addresses
+<br>Optional: (fields to update)
+<br>sapid: string(18)
+<br>hostname: string(17)
+<br>macaddress: string(17)
+<br>Response:
+<br>Sucess 200 ok: Application/json
+<br>Not Found 404: Loopback Address not Found
+<br>Bad request 400: Invalid request dataa
 
 Example:
 
