@@ -36,17 +36,21 @@ class Router_View(APIView):
         loopback_start = request.GET.get('loopback_start')
         loopback_end = request.GET.get('loopback_end')
 
+        print(loopback_start, loopback_end)
         if loopback_start == None and loopback_end == None:
             
             router_query = Router.objects.all()
 
         else:
             #validating if given ranges are of IPV4 type.
-            if ip_address_validator(loopback_start) or ip_address_validator(loopback_end):
+            
+            if ip_address_validator(loopback_start) and ip_address_validator(loopback_end):
+                router_query = Router.objects.filter(loopback__gte=loopback_start).filter(loopback__lte=loopback_end)
+            else:
+
                 return Response({'Bad Request':'Invalid IP address found'},status=status.HTTP_400_BAD_REQUEST)
 
-            router_query = Router.objects.filter(loopback__gte=loopback_start).filter(loopback__lte=loopback_end)
-
+            
         #serializing the router queryset to return as a json object
         router_query = self.get_serializer(router_query,many=True).data
 
